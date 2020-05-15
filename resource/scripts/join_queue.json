@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "onIsland": 2,
+    "visitors": [
+        {
+            "name": "Vicktaru",
+            "$id": 9214093,
+            "addedTimestamp": "2020-05-06 16:36:51",
+            "place": 1,
+            "time": 4
+        },
+        {
+            "name": "tinytim",
+            "$id": 9214500,
+            "addedTimestamp": "2020-05-06 16:37:17",
+            "place": 2,
+            "time": 4
+        }
+    ],
+    "total": 8,
+    "visitorCount": 1,
+    "$id": 9216168,
+    "yourPlace": 3
+}
