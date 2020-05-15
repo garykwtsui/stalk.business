@@ -7,23 +7,27 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "cross-fetch": "^3.0.4",
+    "gh-pages": "^2.2.0",
     "log4js": "^6.2.1",
     "react": "^16.13.1",
     "react-audio-player": "^0.13.0",
     "react-dom": "^16.13.1",
     "react-native-uuid": "^1.4.9",
     "react-scripts": "3.4.1",
+    "save-dev": "0.0.1-security",
     "semantic-ui-react": "^0.88.2",
     "universal-cookie": "^4.0.3",
     "ws": "^7.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv ./build ../build/frontend",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3000/",
   "eslintConfig": {
     "extends": "react-app"
   },

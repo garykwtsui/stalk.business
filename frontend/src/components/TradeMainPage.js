@@ -9,7 +9,7 @@ import ReactAudioPlayer from "react-audio-player";
 import dingMP3 from "../resources/ding.mp3";
 import waterdropMP3 from "../resources/waterdrop2.mp3";
 import errorMP3 from "../resources/computerError2.mp3";
-import Facilitator from "../utils/facilitator";
+// import Facilitator from "../../../bkup/utils/facilitator";
 
 class TradeMainPage extends Component {
   constructor(props) {
@@ -427,14 +427,14 @@ class TradeMainPage extends Component {
       });
   }
 
-  async getTradesDirect() {
-    let islands = await Facilitator.getTrades();
-    this.setState({
-      islands: islands,
-      visitorName: this.state.visitorName,
-      visitorIDs: this.visitorIDs,
-    });
-  }
+  // async getTradesDirect() {
+  //   let islands = await Facilitator.getTrades();
+  //   this.setState({
+  //     islands: islands,
+  //     visitorName: this.state.visitorName,
+  //     visitorIDs: this.visitorIDs,
+  //   });
+  // }
   getTrades() {
     this.prevState = this.state;
     console.log("consolidating trades...");
