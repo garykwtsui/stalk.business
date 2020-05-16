@@ -215,7 +215,9 @@ class TradeMainPage extends Component {
   }
 
   handleURLBase() {
+    console.log("handleURLbase");
     if (window.location.href.indexOf("github")) {
+      console.log("github detected");
       return "https://stalk-business.herokuapp.com";
     }
 
