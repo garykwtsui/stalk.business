@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.5f361e03.chunk.css",
-    "main.js": "/static/js/main.537207a2.chunk.js",
-    "main.js.map": "/static/js/main.537207a2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8dc0443e.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8dc0443e.js.map",
-    "static/js/2.d7d394be.chunk.js": "/static/js/2.d7d394be.chunk.js",
-    "static/js/2.d7d394be.chunk.js.map": "/static/js/2.d7d394be.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.0e6b9316dc330a2d7d5b3a17d37180da.js": "/precache-manifest.0e6b9316dc330a2d7d5b3a17d37180da.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.d7d394be.chunk.js.LICENSE.txt": "/static/js/2.d7d394be.chunk.js.LICENSE.txt",
-    "static/media/computerError2.mp3": "/static/media/computerError2.6583b7bd.mp3",
-    "static/media/ding.mp3": "/static/media/ding.2d524655.mp3",
-    "static/media/waterdrop2.mp3": "/static/media/waterdrop2.31a564d2.mp3"
+    "main.css": "/stalk.business/static/css/main.5f361e03.chunk.css",
+    "main.js": "/stalk.business/static/js/main.fdbfcccb.chunk.js",
+    "main.js.map": "/stalk.business/static/js/main.fdbfcccb.chunk.js.map",
+    "runtime-main.js": "/stalk.business/static/js/runtime-main.55500822.js",
+    "runtime-main.js.map": "/stalk.business/static/js/runtime-main.55500822.js.map",
+    "static/js/2.d7d394be.chunk.js": "/stalk.business/static/js/2.d7d394be.chunk.js",
+    "static/js/2.d7d394be.chunk.js.map": "/stalk.business/static/js/2.d7d394be.chunk.js.map",
+    "index.html": "/stalk.business/index.html",
+    "precache-manifest.67d7615e480b3bea1fca5d830dd7a178.js": "/stalk.business/precache-manifest.67d7615e480b3bea1fca5d830dd7a178.js",
+    "service-worker.js": "/stalk.business/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/stalk.business/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.d7d394be.chunk.js.LICENSE.txt": "/stalk.business/static/js/2.d7d394be.chunk.js.LICENSE.txt",
+    "static/media/computerError2.mp3": "/stalk.business/static/media/computerError2.6583b7bd.mp3",
+    "static/media/ding.mp3": "/stalk.business/static/media/ding.2d524655.mp3",
+    "static/media/waterdrop2.mp3": "/stalk.business/static/media/waterdrop2.31a564d2.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.8dc0443e.js",
+    "static/js/runtime-main.55500822.js",
     "static/js/2.d7d394be.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.537207a2.chunk.js"
+    "static/js/main.fdbfcccb.chunk.js"
   ]
 }
