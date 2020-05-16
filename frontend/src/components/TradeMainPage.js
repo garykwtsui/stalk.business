@@ -10,7 +10,7 @@ import dingMP3 from "../resources/ding.mp3";
 import waterdropMP3 from "../resources/waterdrop2.mp3";
 import errorMP3 from "../resources/computerError2.mp3";
 // import Facilitator from "../../../bkup/utils/facilitator";
-
+import ReactGA from "react-ga";
 class TradeMainPage extends Component {
   constructor(props) {
     super(props);
@@ -113,6 +113,21 @@ class TradeMainPage extends Component {
             }
             break;
           case "queueUpdated":
+            obj.data.visitors.map((visitor) => {
+              for (let key in self.state.turnipQueueIDs) {
+                if (self.state.turnipQueueIDs[key] === visitor.$id) {
+                  // message = "your place: " + visitor.place;
+                  console.log("[WS] visitor.place: " + visitor.place);
+                  if (!self.state.yourPlaces) {
+                    self.state.yourPlaces = {};
+                  }
+                  self.state.yourPlaces[key] = visitor.place;
+                  self.setState({
+                    yourPlaces: self.state.yourPlaces,
+                  });
+                }
+              }
+            });
             break;
           default:
             console.log("Unknown wss action: " + obj.action);
@@ -216,7 +231,7 @@ class TradeMainPage extends Component {
 
   handleURLBase() {
     console.log("handleURLbase");
-    if (window.location.href.indexOf("github")) {
+    if (window.location.href.indexOf("github") >= 0) {
       console.log("github detected");
       return "https://stalk-business.herokuapp.com";
     }
@@ -301,7 +316,8 @@ class TradeMainPage extends Component {
           },
         ];
       }
-
+      // TODO:  if i join again without leaving (e.g. add more trades)
+      //        i should be able to reuse my visitorID?
       console.log("Generating visitorID");
       await this.handleVisitorID(sellerTurnipCode, null);
       console.log("Generating visitorID");
@@ -325,10 +341,15 @@ class TradeMainPage extends Component {
           buyerIsland = island.buyer;
         }
       });
-
+      if (!sellerIsland) {
+        console.log("seller island not found");
+      }
+      if (!buyerIsland) {
+        console.log("buyer island not found");
+      }
       if (
-        this.failedTrades[sellerIsland.turnipCode] ||
-        this.failedTrades[buyerIsland.turnipCode]
+        this.failedTrades[sellerTurnipCode] ||
+        this.failedTrades[buyerTurnipCode]
       ) {
         // play error
         // notify
@@ -348,11 +369,9 @@ class TradeMainPage extends Component {
         //     : ""
         // );
         console.log(
-          "Unable to add trade: " +
-            sellerIsland.turnipCode +
-            " - " +
-            buyerIsland.turnipCode
+          "Unable to add trade: " + sellerTurnipCode + " - " + buyerTurnipCode
         );
+        this.setTrades("leave", sellerTurnipCode, buyerTurnipCode);
       } else {
         // all good!
         this.state.yourTrades.push({
@@ -496,10 +515,16 @@ class TradeMainPage extends Component {
     }, 30000);
   }
 
+  initializeGA() {
+    ReactGA.initialize("UA-166888774-1");
+    ReactGA.pageview("/stalk.business");
+  }
+
   componentDidMount() {
     this.handleReconnect();
     this.getTrades();
     this.autoRefresh();
+    this.initializeGA();
   }
 
   handleInfo(event) {
