@@ -214,8 +214,16 @@ class TradeMainPage extends Component {
     }
   }
 
+  handleURLBase() {
+    if (window.location.href.indexOf("local")) {
+      return "https://stalk-business.herokuapp.com";
+    }
+
+    return "";
+  }
+
   handleFetch(url, side, turnipCode, callback) {
-    fetch(url)
+    fetch(this.handleURLBase() + url)
       .then((response) => response.json())
       .then((data) => callback(side, turnipCode, data));
   }
@@ -407,7 +415,7 @@ class TradeMainPage extends Component {
   }
 
   getTradesServer() {
-    fetch("/getTrades")
+    fetch(this.handleURLBase() + "/getTrades")
       // fetch("/getTradesTest")
       .then((res) => {
         if (!res.ok) {
