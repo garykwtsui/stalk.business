@@ -371,6 +371,24 @@ class TradeMainPage extends Component {
         console.log(
           "Unable to add trade: " + sellerTurnipCode + " - " + buyerTurnipCode
         );
+        let reason = this.failedTrades[sellerTurnipCode]
+          ? this.failedTrades[sellerTurnipCode]
+          : this.failedTrades[buyerTurnipCode];
+        let turnipCode = this.failedTrades[sellerTurnipCode]
+          ? sellerTurnipCode
+          : buyerTurnipCode;
+        let islandName;
+        for (let island of this.state.islands) {
+          if (island.seller.turnipCode === turnipCode) {
+            islandName = island.seller.name;
+            break;
+          } else if (island.seller.turnipCode === turnipCode) {
+            islandName = island.buyer.name;
+            break;
+          }
+        }
+        alert("Unable to join " + islandName + "'s queue: " + reason);
+        this.currentButtonElement.toggleLoading();
         this.setTrades("leave", sellerTurnipCode, buyerTurnipCode);
       } else {
         // all good!
@@ -515,6 +533,18 @@ class TradeMainPage extends Component {
     }, 30000);
   }
 
+  isDevelopment() {
+    if (
+      window.location.href.indexOf("localhost") >= 0 ||
+      window.location.href.indexOf("127.0.0.1") >= 0
+    ) {
+      console.log("localhost detected");
+      return true;
+    }
+
+    return false;
+  }
+
   initializeGA() {
     ReactGA.initialize("UA-166888774-1");
     ReactGA.pageview("/stalk.business");
@@ -524,7 +554,9 @@ class TradeMainPage extends Component {
     this.handleReconnect();
     this.getTrades();
     this.autoRefresh();
-    this.initializeGA();
+    if (!this.isDevelopment()) {
+      this.initializeGA();
+    }
   }
 
   handleInfo(event) {
