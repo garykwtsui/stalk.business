@@ -6,6 +6,11 @@ let fetchAndOrganize = require("../src/api/fetchAndOrganize.js");
 let queue = require("../src/api/queue.js");
 let Island = require("../src/api/Island.js");
 
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express - Gary" });
@@ -13,8 +18,20 @@ router.get("/", function (req, res, next) {
 
 router.get("/getTrades", async function (req, res, next) {
   let islands = await fetchAndOrganize.fetchAndOrganize();
+  var retryCount = 0;
   if (islands.length <= 0) {
     console.log("WARNING: no islands found !?");
+    while (retryCount < 3) {
+      console.log("WARNING: Going to retry !?");
+      // sleep
+      await sleep(2000);
+      islands = await fetchAndOrganize.fetchAndOrganize();
+      if (islands.length > 0) {
+        console.log("INFO: found islands");
+        break;
+      }
+      retryCount++;
+    }
   }
   res.json(islands);
 });
