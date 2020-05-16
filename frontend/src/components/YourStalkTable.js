@@ -171,7 +171,8 @@ class YourStalkTable extends TradeTable {
                   trade,
                   <Icon name="angle double down" />
                 )}
-                {this.createActionButton(
+
+                {/* {this.createActionButton(
                   "grab",
                   trade,
                   <Icon name="angle double right" />
@@ -180,7 +181,7 @@ class YourStalkTable extends TradeTable {
                   "ping",
                   trade,
                   <Icon name="angle double left" />
-                )}
+                )} */}
               </Table.Cell>
             </Table.Row>
             <Table.Row>
