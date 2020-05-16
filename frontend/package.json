@@ -28,7 +28,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "proxy": "http://localhost:3000/",
+  "proxy": "https://stalk-business.herokuapp.com/",
   "eslintConfig": {
     "extends": "react-app"
   },
