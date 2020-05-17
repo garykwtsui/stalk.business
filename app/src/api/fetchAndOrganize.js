@@ -137,14 +137,14 @@ function organize(sell_side_data, buy_side_data) {
 
 // Pre: (sellside, sorted asc), (buyside, sorted desc)
 function shouldPair(islands_sellside, islands_buyside) {
-  if (islands_buyside.turnipPrice < 300) {
-    return false;
-  }
+  // if (islands_buyside.turnipPrice < 150) {
+  //   return false;
+  // }
   // naive approach
   let dist0 = distanceQ(islands_sellside, islands_buyside);
   let dist1 = distanceP(islands_sellside, islands_buyside);
   // relaxed: && -dist0 < 20
-  if (dist0 < 0 && -dist0 > 4 && -dist0 < 40) {
+  if (dist0 < 0 && -dist0 > 4 && -dist0 < 20) {
     if (dist1 > 0) {
       return true;
     }
