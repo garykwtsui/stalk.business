@@ -103,7 +103,9 @@ function organize(sell_side_data, buy_side_data) {
       case "celeste":
         break;
       default:
-        islands_buyside.push(island);
+        if (island.turnipPrice >= 300) {
+          islands_buyside.push(island);
+        }
         break;
     }
   }
