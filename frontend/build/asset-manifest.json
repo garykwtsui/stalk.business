@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/stalk.business/static/css/main.5f361e03.chunk.css",
-    "main.js": "/stalk.business/static/js/main.f75ad713.chunk.js",
-    "main.js.map": "/stalk.business/static/js/main.f75ad713.chunk.js.map",
+    "main.js": "/stalk.business/static/js/main.6718c71a.chunk.js",
+    "main.js.map": "/stalk.business/static/js/main.6718c71a.chunk.js.map",
     "runtime-main.js": "/stalk.business/static/js/runtime-main.55500822.js",
     "runtime-main.js.map": "/stalk.business/static/js/runtime-main.55500822.js.map",
     "static/js/2.297d49fd.chunk.js": "/stalk.business/static/js/2.297d49fd.chunk.js",
     "static/js/2.297d49fd.chunk.js.map": "/stalk.business/static/js/2.297d49fd.chunk.js.map",
     "index.html": "/stalk.business/index.html",
-    "precache-manifest.a826cf43f6c4fbb8bc2a8f2329161266.js": "/stalk.business/precache-manifest.a826cf43f6c4fbb8bc2a8f2329161266.js",
+    "precache-manifest.68ad35aa264d35f435f989c2d616ea17.js": "/stalk.business/precache-manifest.68ad35aa264d35f435f989c2d616ea17.js",
     "service-worker.js": "/stalk.business/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/stalk.business/static/css/main.5f361e03.chunk.css.map",
     "static/js/2.297d49fd.chunk.js.LICENSE.txt": "/stalk.business/static/js/2.297d49fd.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.55500822.js",
     "static/js/2.297d49fd.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.f75ad713.chunk.js"
+    "static/js/main.6718c71a.chunk.js"
   ]
 }
