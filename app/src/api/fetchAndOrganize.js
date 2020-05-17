@@ -144,7 +144,8 @@ function shouldPair(islands_sellside, islands_buyside) {
   let dist0 = distanceQ(islands_sellside, islands_buyside);
   let dist1 = distanceP(islands_sellside, islands_buyside);
   // relaxed: && -dist0 < 20
-  if (dist0 < 0 && -dist0 > 4 && -dist0 < 20) {
+  // -dist0 > 4 - means they are at least 4 slots apart.
+  if (dist0 < 0 && -dist0 > 4) {
     if (dist1 > 0) {
       return true;
     }

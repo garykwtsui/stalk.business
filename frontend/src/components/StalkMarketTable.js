@@ -62,7 +62,7 @@ class StalkMarketTable extends TradeTable {
       return (
         <Table.Body>
           <Table.Row>
-            <Table.Cell colspan="7">
+            <Table.Cell colSpan="7">
               <Icon name="hourglass start" />
               Please wait...
             </Table.Cell>
