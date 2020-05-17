@@ -30,18 +30,26 @@ class StalkMarketTable extends TradeTable {
     );
   }
 
-  createConditionRows(trades, message) {
-    if (trades.length <= 0) {
+  createHighlightedRows(trade, index) {
+    if (trade.buyer.queuedPos - trade.seller.queuedPos < 16) {
       return (
-        <Table.Row>
-          <Table.Cell colSpan="7">
-            <Icon name="x" />
-            {message}
+        <Table.Row positive>
+          {this.createTradeRow("seller", trade.seller, index)}
+          {this.createTradeRow("buyer", trade.buyer, index)}
+          <Table.Cell>
+            {this.createActionButton(
+              "join",
+              trade,
+              <Icon name="angle double up" />
+            )}
           </Table.Cell>
         </Table.Row>
       );
-    } else {
-      return trades.map((trade, index) => (
+    } else if (
+      trade.buyer.queuedPos - trade.seller.queuedPos >= 16 &&
+      trade.buyer.queuedPos - trade.seller.queuedPos < 32
+    ) {
+      return (
         <Table.Row>
           {this.createTradeRow("seller", trade.seller, index)}
           {this.createTradeRow("buyer", trade.buyer, index)}
@@ -53,7 +61,36 @@ class StalkMarketTable extends TradeTable {
             )}
           </Table.Cell>
         </Table.Row>
-      ));
+      );
+    }
+    return (
+      <Table.Row negative>
+        {this.createTradeRow("seller", trade.seller, index)}
+        {this.createTradeRow("buyer", trade.buyer, index)}
+        <Table.Cell>
+          {this.createActionButton(
+            "join",
+            trade,
+            <Icon name="angle double up" />
+          )}
+        </Table.Cell>
+      </Table.Row>
+    );
+  }
+  createConditionRows(trades, message) {
+    if (trades.length <= 0) {
+      return (
+        <Table.Row>
+          <Table.Cell colSpan="7">
+            <Icon name="x" />
+            {message}
+          </Table.Cell>
+        </Table.Row>
+      );
+    } else {
+      return trades.map((trade, index) =>
+        this.createHighlightedRows(trade, index)
+      );
     }
   }
 
