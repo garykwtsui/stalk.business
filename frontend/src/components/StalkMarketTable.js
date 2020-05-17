@@ -1,8 +1,35 @@
 import React from "react";
-import { Icon, Table } from "semantic-ui-react";
+import { Icon, Table, Divider, Header } from "semantic-ui-react";
 import TradeTable from "./TradeTable";
 
 class StalkMarketTable extends TradeTable {
+  state = {
+    seconds: 30,
+  };
+
+  componentDidMount() {
+    this.myInterval = setInterval(() => {
+      if (this.state.seconds <= 0) {
+        this.state.seconds = 30;
+      }
+      this.setState(({ seconds }) => ({
+        seconds: seconds - 1,
+      }));
+      // console.log("Seconds: " + this.state.seconds);
+    }, 1000);
+  }
+
+  createHeader(sectionIcon, sectionName) {
+    return (
+      <Divider horizontal>
+        <Header as="h4">
+          {sectionIcon}
+          {sectionName} ({this.state.seconds})
+        </Header>
+      </Divider>
+    );
+  }
+
   createConditionRows(trades, message) {
     if (trades.length <= 0) {
       return (

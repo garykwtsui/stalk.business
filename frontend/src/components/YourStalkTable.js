@@ -142,14 +142,14 @@ class YourStalkTable extends TradeTable {
     // "{"action":"islandUpdated","data":{"description":"there is no fee but i'm in desperate need of nmt so it would be nice if you could bring some but that's it","locked":1,"private":0,"paused
     return (
       <Table.Row>
-        <Table.Cell colspan="3" verticalAlign="top">
+        <Table.Cell colSpan="3" verticalAlign="top">
           {this.createAccordion(
             trade.seller.turnipCode,
             trade.seller,
             sellSide
           )}
         </Table.Cell>
-        <Table.Cell colspan="3" verticalAlign="top">
+        <Table.Cell colSpan="3" verticalAlign="top">
           {this.createAccordion(trade.buyer.turnipCode, trade.buyer, buySide)}
         </Table.Cell>
         <Table.Cell></Table.Cell>

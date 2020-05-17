@@ -94,15 +94,21 @@ class TradeTable extends Component {
     console.log("Error: Empty body");
   }
 
+  createHeader(sectionIcon, sectionName) {
+    return (
+      <Divider horizontal>
+        <Header as="h4">
+          {sectionIcon}
+          {sectionName}
+        </Header>
+      </Divider>
+    );
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Divider horizontal>
-          <Header as="h4">
-            {this.props.sectionIcon}
-            {this.props.sectionName}
-          </Header>
-        </Divider>
+        {this.createHeader(this.props.sectionIcon, this.props.sectionName)}
         <Table celled striped>
           <Table.Header>
             <Table.Row>

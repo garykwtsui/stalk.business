@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Icon, Container } from "semantic-ui-react";
+import { Icon, Container, Label, Segment } from "semantic-ui-react";
 import Cookies from "universal-cookie";
 import StalkMarketTable from "./StalkMarketTable";
 import YourInformation from "./YourInformation";
@@ -609,6 +609,7 @@ class TradeMainPage extends Component {
             visitorName={this.state.visitorName}
             onInfoChanged={this.handleInfo.bind(this)}
           />
+
           <YourStalkTable
             trades={this.state.yourTrades}
             yourPlaces={this.state.yourPlaces}
