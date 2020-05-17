@@ -44,14 +44,18 @@ class StalkMarketTable extends TradeTable {
       );
     }
     let goodTrades = trades.filter((trade) => trade.buyer.turnipPrice >= 300);
-    let subparTrades = trades.filter((trade) => trade.buyer.turnipPrice < 300);
+    let subparTrades = trades.filter(
+      (trade) => trade.buyer.turnipPrice >= 190 && trade.buyer.turnipPrice < 300
+    );
+    goodTrades.sort((a, b) => b.buyer.turnipPrice - a.buyer.turnipPrice);
+    subparTrades.sort((a, b) => b.buyer.turnipPrice - a.buyer.turnipPrice);
 
     return (
       <Table.Body>
         <Table.Row>
           <Table.HeaderCell colSpan="7">
             <Icon name="announcement" />
-            These ones are superb.
+            These ones are superb - Tommy's price > $300
           </Table.HeaderCell>
         </Table.Row>
         {this.createConditionRows(
@@ -61,7 +65,7 @@ class StalkMarketTable extends TradeTable {
         <Table.Row>
           <Table.HeaderCell colSpan="7">
             <Icon name="dont" />
-            These ones are less than ideal.
+            These ones are less than ideal - Tommy's price ($190 - $300)
           </Table.HeaderCell>
         </Table.Row>
         {this.createConditionRows(
